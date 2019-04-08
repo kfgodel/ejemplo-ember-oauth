@@ -30,8 +30,22 @@ la configuracion de securizacion.
 > ember serve  
 Abrir [http://localhost:4200/](http://localhost:4200/)  
 
-6. Instalar simple auth
+6. Quitar la pagina de welcome
+7. Instalar simple auth
 > ember install ember-simple-auth
+
+8. Customizar [vista](app/templates/application.hbs) y [controller](app/controllers/application.js) de application [segun pagina](https://github.com/simplabs/ember-simple-auth#installation)
+9. Usar [authenticator password](app/authenticators/oauth2.js) para autenticar
+10. Crear [form de login](app/templates/login.hbs) y [su controller](app/controllers/login.js)
+11. Agregar [mixin](app/routes/application.js) para ser desloguear automaticamente
+
+12. Agregar ejemplo de [ruta protegida](app/routes/protected.js)
+13. Agregar las rutas en el [router](app/router.js)
+
+14. Agregar [authorizer](app/authorizers/oauth2.js) para decorar los request con headers de oauth
+15. Asegurar requests de ember data [adapter](app/adapters/application.js)
+
+16. Configurar endpoint de autenticacion en [authenticator](app/authenticators/oauth2.js)
 
 ### Verificar autenticacion
 
