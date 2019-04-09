@@ -53,7 +53,7 @@ Abrir [http://localhost:4200/](http://localhost:4200/)
 
 ### Verificar comportamiento
 
-1. Levantar backend (app java: ejemplo-oauth)
+1. Levantar backend [app java](https://github.com/kfgodel/ejemplo-oauth)
 2. Levantar este frontend
 > npm start
 
