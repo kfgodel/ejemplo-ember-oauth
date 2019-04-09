@@ -6,10 +6,15 @@ export default Controller.extend({
 
   actions: {
     authenticate() {
-      let { identification, password } = this.getProperties('identification', 'password');
-      this.get('session').authenticate('authenticator:oauth2', identification, password).catch((reason) => {
-        this.set('errorMessage', reason.error || reason);
-      });
+      let {identification, password} = this.getProperties('identification', 'password');
+      this.get('session')
+        .authenticate('authenticator:oauth2', identification, password)
+        .then(()=>{
+          this.set('errorMessage', 'Correctamente logueado. Anda a protected ahora');
+        })
+        .catch((reason) => {
+          this.set('errorMessage', reason.error || reason);
+        });
     }
   }
 });

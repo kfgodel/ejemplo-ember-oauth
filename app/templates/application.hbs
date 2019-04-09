@@ -1,6 +1,6 @@
 <div class="menu">
   {{#if session.isAuthenticated}}
-    <a {{action "invalidateSession"}} role="button">Logout</a>
+    <button {{action "invalidateSession"}} >Logout</button>
   {{else}}
     {{#link-to "login"}}Login{{/link-to}}
   {{/if}}

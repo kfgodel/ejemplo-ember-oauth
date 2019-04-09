@@ -39,21 +39,27 @@ Abrir [http://localhost:4200/](http://localhost:4200/)
 10. Crear [form de login](app/templates/login.hbs) y [su controller](app/controllers/login.js)
 11. Agregar [mixin](app/routes/application.js) para ser desloguear automaticamente
 
-12. Agregar ejemplo de [ruta protegida](app/routes/protected.js)
+12. Agregar ejemplo de [ruta protegida](app/routes/authenticated/protected.js)
 13. Agregar las rutas en el [router](app/router.js)
 
 14. Agregar [authorizer](app/authorizers/oauth2.js) para decorar los request con headers de oauth
 15. Asegurar requests de ember data [adapter](app/adapters/application.js)
 
 16. Configurar endpoint de autenticacion en [authenticator](app/authenticators/oauth2.js)
+17. Agregar endpoint y clientId como parametros del [environment](config/environment.js)
+18. Enviar requests de api al backend en [package.json](package.json)
 
-### Verificar autenticacion
+19. Agregar ejemplo de [pagina protegida por autenticacion](app/templates/authenticated/protected.hbs)
 
-Authorization Code
-- http://localhost:8080/oauth/authorize?grant_type=authorization_code&response_type=code&client_id=clientId&extraData=1234
+### Verificar comportamiento
 
-Client credentials:
-> curl clientId:@localhost:8080/oauth/token -dgrant_type=client_credentials -dscope=any
+1. Levantar backend (app java: ejemplo-oauth)
+2. Levantar este frontend
+> npm start
 
-Password
-> curl clientId:@localhost:8080/oauth/token -dgrant_type=password -dscope=any -dusername=user -dpassword=password
+3. Abrir [http://localhost:4200/protected](http://localhost:4200/protected)
+4. Verificar que no esta disponible hasta que no se autentica (click en login)
+`user:password` las credenciales
+5. Volver a [http://localhost:4200/protected](http://localhost:4200/protected) una vez autenticado
+
+6. Se puede probar también desloguear desde una solapa, o dar refresh
